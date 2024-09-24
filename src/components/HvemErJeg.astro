@@ -1,0 +1,30 @@
+---
+
+---
+
+<section id="hvemerjeg">
+    <h2>Hvem er jeg?</h2>
+    <div class="introduction">
+        <div>
+            <p>Jeg er 23 år og bor i København. Jeg har en stor kærlighed til naturen og alt, hvad der rummer kreativitet. For nylig har jeg også opdaget min passion for kodning, hvor jeg nyder at se mine ideer tage form og blive til virkelighed. </p>
+            <p>Jeg sætter stor pris på struktur og orden, både i min hverdag og i mit arbejde med kodning. Jeg trives i teams, hvor jeg mener, vi kan lære meget mere ved at sparre og dele viden med hinanden. </p>
+            <p>Jeg er også en person, der virkelig nyder at hjælpe andre og altid stræber efter at udvikle mig selv. Derfor arbejder jeg som tutor ved siden af mit studie, hvor jeg hjælper mine medstuderende med deres udfordringer.</p>
+        </div>
+        <img src="/img/profile.jpg" alt="portræt af mig">
+    </div>
+
+</section>
+
+<style>
+    @layer components {
+        .introduction {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            column-gap: var(--space-xl);
+
+            img {
+                grid-column: 2;
+            }
+        }
+    }
+</style>

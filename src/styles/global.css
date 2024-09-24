@@ -1,0 +1,212 @@
+@layer reset, global, components, utilities;
+
+@import url("./reset.css");
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+/* virker kun  i chrome, ellers brug viewTransitions (i layout), hvilket gør at script ikke reloader*/
+/* @view-transition {
+  navigation: auto;
+} */
+
+@layer global {
+  :root {
+    /* colors */
+    --primary-1: #1c341e;
+    --primary-2: #f5c151;
+    --secondary-50: #f3faf3;
+    --secondary-100: #e4f4e5;
+    --secondary-200: #cae8cc;
+    --secondary-300: #a1d4a3;
+    --secondary-400: #70b873;
+    --secondary-500: #4c9b50;
+    --secondary-600: #3a7f3d;
+    --secondary-700: #306533;
+    --secondary-800: #2a512d;
+    --secondary-950: #0f2411;
+
+    /* font-sizing */
+    /* @link https://utopia.fyi/type/calculator?c=320,16,1.067,1440,18,1.125,9,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+    /* Step 0: 16px → 18px */
+    --step-0: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+    /* Step 1: 17.072px → 20.25px */
+    --step-1: clamp(1.067rem, 1.0103rem + 0.2838vw, 1.2656rem);
+    /* Step 2: 18.2158px → 22.7813px */
+    --step-2: clamp(1.1385rem, 1.057rem + 0.4076vw, 1.4238rem);
+    /* Step 3: 19.4363px → 25.6289px */
+    --step-3: clamp(1.2148rem, 1.1042rem + 0.5529vw, 1.6018rem);
+    /* Step 4: 20.7385px → 28.8325px */
+    --step-4: clamp(1.2962rem, 1.1516rem + 0.7227vw, 1.802rem);
+    /* Step 5: 22.128px → 32.4366px */
+    --step-5: clamp(1.383rem, 1.1989rem + 0.9204vw, 2.0273rem);
+    /* Step 6: 23.6106px → 36.4912px */
+    --step-6: clamp(1.4757rem, 1.2457rem + 1.1501vw, 2.2807rem);
+    /* Step 7: 25.1925px → 41.0526px */
+    --step-7: clamp(1.5745rem, 1.2913rem + 1.4161vw, 2.5658rem);
+    /* Step 8: 26.8804px → 46.1841px */
+    --step-8: clamp(1.68rem, 1.3353rem + 1.7235vw, 2.8865rem);
+    /* Step 9: 28.6814px → 51.9571px */
+    --step-9: clamp(1.7926rem, 1.3769rem + 2.0782vw, 3.2473rem);
+
+    /* spacing */
+    /* @link https://utopia.fyi/space/calculator?c=320,16,1.067,1440,18,1.125,9,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+    /* Space 3xs: 4px → 5px */
+    --space-3xs: clamp(0.25rem, 0.2321rem + 0.0893vw, 0.3125rem);
+    /* Space 2xs: 8px → 9px */
+    --space-2xs: clamp(0.5rem, 0.4821rem + 0.0893vw, 0.5625rem);
+    /* Space xs: 12px → 14px */
+    --space-xs: clamp(0.75rem, 0.7143rem + 0.1786vw, 0.875rem);
+    /* Space s: 16px → 18px */
+    --space-s: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+    /* Space m: 24px → 27px */
+    --space-m: clamp(1.5rem, 1.4464rem + 0.2679vw, 1.6875rem);
+    /* Space l: 32px → 36px */
+    --space-l: clamp(2rem, 1.9286rem + 0.3571vw, 2.25rem);
+    /* Space xl: 48px → 54px */
+    --space-xl: clamp(3rem, 2.8929rem + 0.5357vw, 3.375rem);
+    /* Space 2xl: 64px → 72px */
+    --space-2xl: clamp(4rem, 3.8571rem + 0.7143vw, 4.5rem);
+    /* Space 3xl: 96px → 108px */
+    --space-3xl: clamp(6rem, 5.7857rem + 1.0714vw, 6.75rem);
+  }
+
+  main * + *:not(img) {
+    margin-top: 1em;
+  }
+  button {
+    margin-top: 1rem;
+  }
+
+  html {
+    background-color: var(--primary-1);
+    font-family: "Inter", sans-serif;
+    color: var(--secondary-100);
+
+    scroll-behavior: smooth;
+  }
+
+  h4 {
+    font-size: var(--step-5);
+  }
+  h3 {
+    font-size: var(--step-3);
+  }
+  h2 {
+    font-size: var(--step-7);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: var(--step-9);
+    font-weight: 700;
+  }
+
+  p,
+  a,
+  button {
+    font-size: var(--step-0);
+    max-width: 60ch;
+  }
+
+  a:not(:has(button)) {
+    text-decoration: none;
+    color: var(--secondary-100);
+
+    &:hover {
+      color: var(--secondary-200);
+      fill: var(--secondary-200);
+    }
+    &:active {
+      color: var(--secondary-400);
+      fill: var(--secondary-400);
+    }
+
+    svg path {
+      fill: var(--secondary-100);
+    }
+    svg {
+      &:hover path {
+        fill: var(--secondary-200);
+      }
+      &:active path {
+        fill: var(--secondary-400);
+      }
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  button {
+    padding: var(--space-xs) var(--space-l);
+    border: solid 0.125rem var(--secondary-100);
+    color: var(--secondary-100);
+
+    &:hover {
+      background-color: var(--secondary-800);
+    }
+    &:active {
+      background-color: var(--secondary-950);
+    }
+  }
+
+  * {
+    transition: border, color, background-color 0.5s linear;
+
+    &:active {
+      transition: none;
+    }
+  }
+
+  .container {
+    container-type: inline-size;
+  }
+
+  /* layout */
+  body {
+    --content-width: 90ch;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: [full-start] 1fr [content-start] minmax(0, var(--content-width)) [content-end] 1fr [full-end];
+    column-gap: 2ch;
+  }
+
+  header,
+  footer,
+  main {
+    grid-column: full;
+    display: grid;
+    grid-template-columns: subgrid;
+
+    > * {
+      grid-column: content;
+    }
+  }
+
+  section article:has(img):nth-child(odd) img {
+    order: -1;
+  }
+  .section-break {
+    display: block;
+    height: 1px;
+    width: var(--content-width);
+    background-color: var(--primary-2);
+    margin: var(--space-3xl) 0;
+  }
+  .semester-intro {
+    background-color: var(--primary-2);
+    color: var(--primary-1);
+    text-align: center;
+    width: 15ch;
+    padding: var(--space-3xs) 0;
+    margin-inline: auto;
+  }
+  .semester-intro + p {
+    text-align: center;
+    margin-inline: auto;
+  }
+}

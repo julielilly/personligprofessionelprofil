@@ -1,0 +1,37 @@
+---
+const { title, link, date } = Astro.props;
+---
+
+<article>
+    <div>
+        <div class="projekt-header">
+            <h3>{title}</h3>
+            <span></span>
+            <p class="handwritten">{date}</p>
+        </div>
+        <a href={link} target="_blank"><button>Besøg hjemmeside</button></a>
+    </div>
+    <slot/>
+    
+</article>
+
+<style>
+    @layer components {
+		article {
+			display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-l);
+            margin-top: var(--space-2xl);
+
+            div {
+                display: grid;
+                grid-template-columns: subgrid;
+                
+                a {
+                    place-self: end start;
+                }
+            }
+		}
+    }
+  
+  </style>
