@@ -3,12 +3,13 @@
 ---
 
 <section id="hvemerjeg">
-    <h2>Hvem er jeg?</h2>
+    
     <div class="introduction">
         <div>
-            <p>Jeg er 23 år og bor i København. Jeg har en stor kærlighed til naturen og alt, hvad der rummer kreativitet. For nylig har jeg også opdaget min passion for kodning, hvor jeg nyder at se mine ideer tage form og blive til virkelighed. </p>
-            <p>Jeg sætter stor pris på struktur og orden, både i min hverdag og i mit arbejde med kodning. Jeg trives i teams, hvor jeg mener, vi kan lære meget mere ved at sparre og dele viden med hinanden. </p>
-            <p>Jeg er også en person, der virkelig nyder at hjælpe andre og altid stræber efter at udvikle mig selv. Derfor arbejder jeg som tutor ved siden af mit studie, hvor jeg hjælper mine medstuderende med deres udfordringer.</p>
+            <h2>Hvem er jeg?</h2>
+            <p>Jeg er <span>23 år</span> og bor i <span>København</span>. Jeg har en stor kærlighed til <span>naturen</span> og alt, hvad der rummer <span>kreativitet</span>. For nylig har jeg også opdaget min passion for <span>kodning</span>, hvor jeg nyder at se mine ideer tage form og blive til virkelighed. </p>
+            <p>Jeg sætter stor pris på <span>struktur</span> og orden, både i min hverdag og i mit arbejde med kodning. Jeg trives i teams, hvor jeg mener, vi kan lære meget mere ved at sparre og dele viden med hinanden. </p>
+            <p>Jeg er også en person, der virkelig nyder at <span>hjælpe</span> andre og altid stræber efter at <span>udvikle</span> mig selv. Derfor arbejder jeg som <span>tutor</span> ved siden af mit studie, hvor jeg hjælper mine medstuderende med deres udfordringer.</p>
         </div>
         <img src="/img/profile.jpg" alt="portræt af mig">
     </div>
@@ -19,10 +20,28 @@
     @layer components {
         .introduction {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 3fr 2fr;
             column-gap: var(--space-xl);
 
             img {
+                margin-top: var(--space-l);
+                border: solid 30px var(--secondary-950);
+                max-width: 310px;
+                place-self: end;
+            }
+
+            span {
+                color: var(--secondary-300);
+            }
+        }
+
+        @media (width <= 650px) { 
+            .introduction {
+            grid-template-columns: 1fr;
+          }
+        }
+        @media (width > 650px) { 
+            .introduction img {
                 grid-column: 2;
             }
         }

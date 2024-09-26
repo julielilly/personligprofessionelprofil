@@ -4,7 +4,7 @@
 
 <section id="hvaderjeggodtil">
     <h2>Hvad er jeg god til?</h2>
-    <p>Gennem min uddannelse har jeg opbygget kompetencer inden for multimediedesign, hvor vi især har haft fokus på responsivitet og bæredygtighed i alle projekter.Når det kommer til design, har vi arbejdet med Figma, mens vi i frontend-udvikling har brugt moderne frameworks og biblioteker som Astro, React og Next.js for at skabe dynamiske og effektive løsninger.</p>
+    <p>Gennem min uddannelse har jeg opbygget kompetencer inden for multimediedesign, hvor vi især har haft fokus på responsivitet og bæredygtighed i alle projekter. <br> Når det kommer til design, har vi arbejdet med Figma, mens vi i frontend-udvikling har brugt moderne frameworks og biblioteker som Astro, React og Next.js for at skabe dynamiske og effektive løsninger.</p>
     <p>Derudover har jeg dykket grundigt ned i html, css og javaScript. </p>
     <div class="code-section">
         <code>let færdigheder = &#123;
@@ -13,15 +13,14 @@
                 js: "at gøre det interaktivt"
                 &#125;
         </code>
-        <code>
-            function visFærdigheder() &#123;
+        <code>function visFærdigheder() &#123;
                 let skillsText = `Jeg arbejder med HTML ved $&#123færdigheder.html&#125;, CSS ved $&#123færdigheder.css&#125;, og JavaScript ved $&#123færdigheder.js&#125;.`;
                 document.getElementById("my-skills").innerText = skillsText;
             &#125;
         </code>
         <code>visFærdigheder();</code>
     </div>
-    <a target="_blank" href="https://codepen.io/julielilly/pen/QWeWYYe?editors=0010"><button>Se resultatet på github</button></a>
+    <a target="_blank" href="https://codepen.io/julielilly/pen/QWeWYYe?editors=0010"><button>Se resultatet på codepen</button></a>
 
 </section>
 
@@ -36,19 +35,17 @@
                 grid-column: 2;
             }
         }
+        button {
+            margin-left: calc(var(--space-s) + 0.125rem );
+        }
 
         code {
             display: block;
-            text-align: left;
             white-space: pre-line;
-            position: relative;
-            word-break: normal;
-            word-wrap: normal;
             line-height: 2;
-            background-color: ;
-            padding: 15px;
-            margin: 10px;
-            border-radius: 5px;
+            background-color: var(--secondary-950);
+            padding: var(--space-xs);
+            margin: 0 var(--space-s);
 }
     }
 </style>

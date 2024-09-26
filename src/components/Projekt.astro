@@ -17,21 +17,52 @@ const { title, link, date } = Astro.props;
 
 <style>
     @layer components {
-		article {
-			display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-l);
-            margin-top: var(--space-2xl);
+        .projekt-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-s);
+            
+            span {
+                display: block;
+                width: 0.063rem;
+                height: 3rem;
+                background: var(--secondary-100);
+                rotate: 22.5deg;
+            }
+            .handwritten {
+                font-family: "Shadows Into Light", cursive;
+            }
 
-            div {
-                display: grid;
-                grid-template-columns: subgrid;
-                
-                a {
-                    place-self: end start;
+            > * {
+                margin: 0;
+            }
+        }
+
+        article {
+            margin-bottom: var(--space-3xl);
+            > div {
+                margin: 0 var(--space-s) var(--space-2xl) var(--space-s);
+            }
+            
+        }
+        @media (width <= 650px) { 
+            .projekt-header {
+                flex-direction: column;
+                align-items: start;
+
+                span {
+                    display: none;
                 }
             }
-		}
+
+            article {
+                margin-top: var(--space-l);
+
+                > div {
+                margin: 0 0 var(--space-2xl) 0;
+            }
+            }
+        
+        }
     }
-  
   </style>

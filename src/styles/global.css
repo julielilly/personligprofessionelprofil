@@ -2,7 +2,7 @@
 
 @import url("./reset.css");
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Shadows+Into+Light&display=swap");
 
 /* virker kun  i chrome, ellers brug viewTransitions (i layout), hvilket gør at script ikke reloader*/
 /* @view-transition {
@@ -23,13 +23,13 @@
     --secondary-600: #3a7f3d;
     --secondary-700: #306533;
     --secondary-800: #2a512d;
-    --secondary-950: #0f2411;
+    --secondary-950: #162c18;
 
     /* font-sizing */
     /* @link https://utopia.fyi/type/calculator?c=320,16,1.067,1440,18,1.125,9,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
-    /* Step 0: 16px → 18px */
-    --step-0: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+    /* Step 0: 16px → 16px */
+    --step-0: 1rem;
     /* Step 1: 17.072px → 20.25px */
     --step-1: clamp(1.067rem, 1.0103rem + 0.2838vw, 1.2656rem);
     /* Step 2: 18.2158px → 22.7813px */
@@ -82,16 +82,21 @@
   html {
     background-color: var(--primary-1);
     font-family: "Inter", sans-serif;
-    color: var(--secondary-100);
+    color: var(--secondary-50);
+    letter-spacing: 0.1ch;
 
     scroll-behavior: smooth;
   }
 
   h4 {
-    font-size: var(--step-5);
+    font-size: var(--step-4);
+    letter-spacing: 0.1ch;
   }
   h3 {
-    font-size: var(--step-3);
+    font-size: var(--step-2);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.1ch;
   }
   h2 {
     font-size: var(--step-7);
@@ -99,14 +104,16 @@
   }
   h1 {
     font-size: var(--step-9);
+    line-height: 1.5;
     font-weight: 700;
+    white-space: nowrap;
   }
 
   p,
   a,
   button {
     font-size: var(--step-0);
-    max-width: 60ch;
+    max-width: 65ch;
   }
 
   a:not(:has(button)) {
@@ -116,10 +123,16 @@
     &:hover {
       color: var(--secondary-200);
       fill: var(--secondary-200);
+      svg path {
+        fill: var(--secondary-200);
+      }
     }
     &:active {
       color: var(--secondary-400);
       fill: var(--secondary-400);
+      svg path {
+        fill: var(--secondary-400);
+      }
     }
 
     svg path {
@@ -142,7 +155,7 @@
   }
 
   button {
-    padding: var(--space-xs) var(--space-l);
+    padding: var(--space-2xs) var(--space-l);
     border: solid 0.125rem var(--secondary-100);
     color: var(--secondary-100);
 
@@ -162,9 +175,9 @@
     }
   }
 
-  .container {
+  /* .container {
     container-type: inline-size;
-  }
+  } */
 
   /* layout */
   body {
@@ -186,27 +199,20 @@
       grid-column: content;
     }
   }
+  .full-bleed {
+    grid-column: full;
+    display: grid;
+    grid-template-columns: subgrid;
 
-  section article:has(img):nth-child(odd) img {
-    order: -1;
+    > * {
+      grid-column: content;
+    }
   }
-  .section-break {
-    display: block;
-    height: 1px;
-    width: var(--content-width);
-    background-color: var(--primary-2);
-    margin: var(--space-3xl) 0;
+
+  section:not(:first-of-type) {
+    padding-top: var(--space-2xl);
   }
-  .semester-intro {
-    background-color: var(--primary-2);
-    color: var(--primary-1);
-    text-align: center;
-    width: 15ch;
-    padding: var(--space-3xs) 0;
-    margin-inline: auto;
-  }
-  .semester-intro + p {
-    text-align: center;
-    margin-inline: auto;
+  section:not(:last-of-type) {
+    padding-bottom: var(--space-2xl);
   }
 }
