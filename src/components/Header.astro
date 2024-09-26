@@ -83,19 +83,22 @@
 
       header {
             /* height: var(--space-3xl); */
+            height: var(--space-2xl);
             position: sticky;
-            height: 0;
             top: 0;
             z-index: 1;
-            transition: 1s;
-            transform-origin: left;
+            transition: 0.6s ease-out;
+            /* transform-origin: left; */
+            background-color: oklch(from var(--primary-1) l c h / 0  );
         }
       nav ul{
         display: flex;
         align-items: center;
         justify-content: end;
         gap: var(--space-l);
-        margin: var(--space-xl) 0;
+        height: 150px;
+        margin: auto 0;
+        transition: 0.4s ease-out;
 
         li span {
             display: block;
@@ -115,14 +118,7 @@
 
         nav ul{
           margin: var(--space-s) 0;
-
-        li span {
-            display: block;
-            width: 0.063rem;
-            height: 2.5rem;
-            background: var(--secondary-100);
-            rotate: 22.5deg;
-        }
+          height: calc(var(--space-2xl) * 0.5);
       }
     }
       svg {

@@ -27,12 +27,12 @@ const { title, image, alt, description, link } = Astro.props;
     @layer components {
 
       footer {
-         background: #2D3A2C;
-         padding: var(--space-xl) 0 var(--space-3xl) 0;
+         background: url(/img/footer.svg);
+         background-position: top;
+         padding: calc(var(--space-3xl) * 1.5) 0 var(--space-3xl) 0;
 
          h3 {
-            font-weight: 700;
-            text-transform: none;
+            font-weight: 500;
             margin-bottom: var(--space-m);
          }
       }

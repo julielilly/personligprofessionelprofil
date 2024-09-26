@@ -17,6 +17,10 @@ const { title, link, date } = Astro.props;
 
 <style>
     @layer components {
+
+        article:last-child > div {
+            padding: var(--space-l) 0;
+        }
         .projekt-header {
             display: flex;
             align-items: center;

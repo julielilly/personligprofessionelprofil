@@ -27,6 +27,10 @@ import Projekt from "../components/Projekt.astro";
 
 <style>
     @layer components {
+
+        div:has(img) img {
+            filter: drop-shadow(var(--secondary-950) 0.4rem 0.4rem);
+        }
         .mockup-grid {
             display: grid;
             grid-template-columns: repeat(8, 1fr);
