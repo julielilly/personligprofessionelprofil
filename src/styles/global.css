@@ -119,36 +119,23 @@
     color: var(--secondary-100);
   }
 
-  a:not(:has(button)) {
+  a:not(:has(button)),
+  a:not(:has(button)) svg path {
     text-decoration: none;
     color: var(--secondary-100);
+  }
+  a:not(:has(button)):hover,
+  a:not(:has(button)):hover svg path,
+  a:not(:has(button)) svg:hover path {
+    color: var(--secondary-200);
+    fill: var(--secondary-200);
+  }
 
-    &:hover {
-      color: var(--secondary-200);
-      fill: var(--secondary-200);
-      svg path {
-        fill: var(--secondary-200);
-      }
-    }
-    &:active {
-      color: var(--secondary-400);
-      fill: var(--secondary-400);
-      svg path {
-        fill: var(--secondary-400);
-      }
-    }
-
-    svg path {
-      fill: var(--secondary-100);
-    }
-    svg {
-      &:hover path {
-        fill: var(--secondary-200);
-      }
-      &:active path {
-        fill: var(--secondary-400);
-      }
-    }
+  a:not(:has(button)):active,
+  a:not(:has(button)):active svg path,
+  a:not(:has(button)) svg:active path {
+    color: var(--secondary-400);
+    fill: var(--secondary-400);
   }
 
   ul {
@@ -161,31 +148,23 @@
     padding: var(--space-2xs) var(--space-l);
     border: solid 0.125rem var(--secondary-100);
     color: var(--secondary-100);
-
-    &:hover {
-      background-color: var(--secondary-800);
-      letter-spacing: 0.05ch;
-    }
-    &:active {
-      background-color: var(--secondary-950);
-    }
+  }
+  button:hover {
+    background-color: var(--secondary-800);
+    letter-spacing: 0.05ch;
+  }
+  button:active {
+    background-color: var(--secondary-950);
   }
 
   * {
     transition: border, color, background-color 0.5s linear;
-
-    &:active {
-      transition: none;
-    }
+  }
+  *:active {
+    transition: none;
   }
 
-  /* .container {
-    container-type: inline-size;
-  } */
-
   /* layout */
-
-  /* @media screen and (min-device-width: 650px) { */
   body {
     /* --content-width: 90ch; */
     --content-width: 59rem;
@@ -193,13 +172,12 @@
     grid-template-rows: auto 1fr auto;
     grid-template-columns: [full-start] 1fr [content-start] minmax(0, var(--content-width)) [content-end] 1fr [full-end];
     column-gap: 2ch;
-
-    main {
-      grid-row: 1/2;
-    }
-    header {
-      grid-row: 1;
-    }
+  }
+  body main {
+    grid-row: 1/2;
+  }
+  body header {
+    grid-row: 1;
   }
 
   header,
@@ -208,30 +186,20 @@
     grid-column: full;
     display: grid;
     grid-template-columns: subgrid;
-
-    > * {
-      grid-column: content;
-    }
+  }
+  header > *,
+  footer > *,
+  main > * {
+    grid-column: content;
   }
   .full-bleed {
     grid-column: full;
     display: grid;
     grid-template-columns: subgrid;
-
-    > * {
-      grid-column: content;
-    }
   }
-  /* } */
-  /* @media screen and (max-device-width: 650px) {
-    header,
-    footer,
-    main {
-      > * {
-        margin: 1rem;
-      }
-    }
-  } */
+  .full-bleed > * {
+    grid-column: content;
+  }
 
   section:not(:first-of-type) {
     padding-top: var(--space-2xl);
