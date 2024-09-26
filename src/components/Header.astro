@@ -199,12 +199,12 @@
       transform: translateY(0);
       }
 
-      @media (width <= 650px) { 
+      @media screen and (max-device-width: 650px) { 
           header nav .header-destop {
               display: none;
           }
       }
-      @media (width > 650px) { 
+      @media screen and (min-device-width: 650px) { 
           header nav .menu, .header-mobile{
               display: none;
           }

@@ -162,13 +162,13 @@ import Projekt from "../components/Projekt.astro";
             }
         }
 
-        @media (width <= 780px) { 
+        @media screen and (max-device-width: 780px) { 
             .mockup-grid div:nth-child(2){  
                 grid-area: 1 / 8 / 1 / 8;
                 place-self: end start;
             }
         }
-        @media (width <= 650px) { 
+        @media screen and (max-device-width: 650px) { 
             .mockup-grid {  
                 grid-template-columns: 1fr;
                 grid-template-rows: repeat(4, auto);
