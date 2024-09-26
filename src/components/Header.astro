@@ -91,12 +91,14 @@
             /* transform-origin: left; */
             background-color: oklch(from var(--primary-1) l c h / 0  );
         }
+      nav ul:not(.menu){
+        height: 150px;
+      }
       nav ul{
         display: flex;
         align-items: center;
         justify-content: end;
         gap: var(--space-l);
-        height: 150px;
         margin: auto 0;
         transition: 0.4s ease-out;
 
@@ -116,7 +118,7 @@
         background-color: var(--primary-1);
         z-index: 100;
 
-        nav ul{
+        nav ul:not(.menu){
           margin: var(--space-s) 0;
           height: calc(var(--space-2xl) * 0.5);
       }
@@ -175,15 +177,16 @@
       }
       
       .menu {   
+        height: fit-content;
         flex-direction: column;
-        padding: calc(var( --space-3xl) * 1.5) 0 var( --space-xl) 0;
+        padding: calc(var( --space-2xl) * 1.5) 0 var( --space-xl) 0;
         background: var(--primary-1);
         position: fixed;
-        top: -3rem;
+        top: 0;
         z-index: 1;
         width: 87vw;
 
-        transform: translateY(-130%);
+        transform: translateY(-100%);
         transition: all .5s ease;
 
         > div {
