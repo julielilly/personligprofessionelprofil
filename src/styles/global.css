@@ -207,7 +207,7 @@
     grid-template-columns: subgrid;
 
     > * {
-      grid-column: content;
+      grid-column: 2/3;
     }
   }
   .full-bleed {
