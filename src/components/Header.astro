@@ -79,136 +79,123 @@
 
 
 <style>
-    @layer components {
+  @layer components {
 
-      header {
-            /* height: var(--space-3xl); */
-            height: var(--space-2xl);
-            position: sticky;
-            top: 0;
-            z-index: 1;
-            transition: 0.6s ease-out;
-            /* transform-origin: left; */
-            background-color: oklch(from var(--primary-1) l c h / 0  );
-        }
-      nav ul:not(.menu){
-        height: 150px;
-      }
-      nav ul{
-        display: flex;
-        align-items: center;
-        justify-content: end;
-        gap: var(--space-l);
-        margin: auto 0;
-        transition: 0.4s ease-out;
-
-        li span {
-            display: block;
-            width: 0.063rem;
-            height: 2.5rem;
-            background: var(--secondary-100);
-            rotate: 22.5deg;
-        }
-      }
-
-
-      header.scroll {
-        height: var(--space-2xl);
-        /* background-color: oklch(from var(--primary-1) l c h / 0.9  ); */
-        background-color: var(--primary-1);
-        z-index: 100;
-
-        nav ul:not(.menu){
-          margin: var(--space-s) 0;
-          height: calc(var(--space-2xl) * 0.5);
-      }
+    header {
+          height: var(--space-2xl);
+          position: sticky;
+          top: 0;
+          z-index: 1;
+          transition: 0.6s ease-out;
+          background-color: oklch(from var(--primary-1) l c h / 0  );
     }
-      svg {
-        width: 1.25rem;
-      }
+    nav ul:not(.menu){
+      height: 150px;
+    }
+    nav ul{
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      gap: var(--space-l);
+      margin: auto 0;
+      transition: 0.4s ease-out;
+    }
+    nav ul li span {
+        display: block;
+        width: 0.063rem;
+        height: 2.5rem;
+        background: var(--secondary-100);
+        rotate: 22.5deg;
+    }
+    header.scroll {
+      height: var(--space-2xl);
+      background-color: var(--primary-1);
+      z-index: 100;
+    }
+    header.scroll nav ul:not(.menu){
+      margin: var(--space-s) 0;
+      height: calc(var(--space-2xl) * 0.5);
+    }
+    svg {
+      width: 1.25rem;
+    }
 
-      .header-mobile {
-        padding: var(--space-m) 0;
-        position: fixed;
-        z-index: 2;
-        .hamburger {
-          --line-height: calc(var(--space-3xs) * 0.8);
-          --burger-size: calc(var(--line-height) * 6.5);
-          width: calc(var(--burger-size) * 1.5);
-          height: var(--burger-size);
-          cursor: pointer;
-          position: relative;
-          margin-left: calc(100vw - (var(--burger-size) * 1.5) - 4ch);
-    
-            span {
-              position: absolute;
-              height: var(--line-height);
-              width: calc(var(--burger-size) * 1.5);
-              background-color: var(--secondary-50);
-              transform: rotate(0);
-              transition: all .25s ease;
-            }
+    .header-mobile {
+      padding: var(--space-m) 0;
+      position: fixed;
+      z-index: 2;
+    }
+    .header-mobile .hamburger {
+      --line-height: calc(var(--space-3xs) * 0.8);
+      --burger-size: calc(var(--line-height) * 6.5);
+      width: calc(var(--burger-size) * 1.5);
+      height: var(--burger-size);
+      cursor: pointer;
+      position: relative;
+      margin-left: calc(100vw - (var(--burger-size) * 1.5) - 4ch);
+    }
+    .header-mobile .hamburger span {
+      position: absolute;
+      height: var(--line-height);
+      width: calc(var(--burger-size) * 1.5);
+      background-color: var(--secondary-50);
+      transform: rotate(0);
+      transition: all .25s ease;
+    }
+    .line_one {
+      top: calc(var(--burger-size) - var(--burger-size));
+    }
 
-            .line_one {
-              top: calc(var(--burger-size) - var(--burger-size));
-            }
+    .line_two {
+      top: calc(var(--burger-size) / 2);
+    }
 
-            .line_two {
-              top: calc(var(--burger-size) / 2);
-            }
+    .line_three {
+      top: var(--burger-size);
+    }
+    .clicked .line_one {
+        transform: translateY(calc(var(--burger-size) / 2)) rotate(45deg);
+    }
 
-            .line_three {
-              top: var(--burger-size);
-            }
-          }
+    .clicked .line_two {
+        opacity: 0;
+    }
 
-      }
-
-      .clicked .line_one {
-          transform: translateY(calc(var(--burger-size) / 2)) rotate(45deg);
-      }
-
-      .clicked .line_two {
-          opacity: 0;
-      }
-
-      .clicked .line_three {
-          transform: translateY(calc(var(--burger-size) / -2)) rotate(-45deg);
-      }
+    .clicked .line_three {
+        transform: translateY(calc(var(--burger-size) / -2)) rotate(-45deg);
+    }
       
-      .menu {   
-        height: fit-content;
-        flex-direction: column;
-        padding: calc(var( --space-2xl) * 1.5) 0 var( --space-xl) 0;
-        background: var(--primary-1);
-        position: fixed;
-        top: 0;
-        z-index: 1;
-        width: 87vw;
+    .menu {   
+      height: fit-content;
+      flex-direction: column;
+      padding: calc(var( --space-2xl) * 1.5) 0 var( --space-xl) 0;
+      background: var(--primary-1);
+      position: fixed;
+      top: 0;
+      z-index: 1;
+      width: 87vw;
 
-        transform: translateY(-100%);
-        transition: all .5s ease;
+      transform: translateY(-100%);
+      transition: all .5s ease;
+    }
+    .menu > div {
+      display: flex;
+      gap: var(--space-s);
+    }
+    .show_menu {
+    transform: translateY(0);
+    }
 
-        > div {
-          display: flex;
-          gap: var(--space-s);
-        }
-
-      }
-      .show_menu {
-      transform: translateY(0);
-      }
-
-      @media screen and (max-device-width: 650px) { 
-          header nav .header-destop {
-              display: none;
-          }
-      }
-      @media screen and (min-device-width: 650px) { 
-          header nav .menu, .header-mobile{
-              display: none;
-          }
+    @media screen and (max-device-width: 650px) { 
+      header nav .header-destop {
+          display: none;
       }
     }
+    @media screen and (min-device-width: 650px) { 
+      header nav .menu, .header-mobile{
+          display: none;
+      }
+    }
+  }
   
   </style>

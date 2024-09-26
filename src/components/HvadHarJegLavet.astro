@@ -35,68 +35,71 @@ import Projekt from "../components/Projekt.astro";
             display: grid;
             grid-template-columns: repeat(8, 1fr);
             grid-template-rows: 1fr 44px 1fr 22px auto;
-
-            > * {
-                margin: 0;
-                padding: 0;
-                max-width: 17.5rem;
-                position: relative;
-            }
-
-            div:first-child {
-                grid-area: 1 / 2 / 3 / 5;
-               
-                &::before {
-                    content: "css: scroll-snap-type, -align og -stop";
-                    bottom: -2rem;
-                    left: -1.5rem;
-                }
-                &::after {
-                    bottom: -1.4rem;
-                    left: -3rem;
-                    rotate: 15deg;
-                }
-            }
-            div:nth-child(2) {
-                grid-area: 1 / 7 / 1 / 7;
-                place-self: end;
-                max-width: 4rem;
-                margin-bottom: var(--space-s);
-                &::after {
-                    top: -3.2rem;
-                    left: -2rem;
-                    transform: scaleX(-1);
-                    rotate: -90deg;
-                }
-            }
-            div:nth-child(3) {
-                grid-area: 2 / 6 / 4 / 9;
-                &::before {
-                    content: "html: popover, popovertarget";
-                    top: -3rem;
-                    left: -3.5rem;
-                }
-                &::after {
-                    top: -1.4rem;
-                    left: -2.2rem;
-                    rotate: -20deg;
-                }
-            }
-            div:nth-child(4) {
-                grid-area: 5 / 3 / 6 / 6;
-                &::before {
-                    content: "css: animation-timeline og -range";
-                    top: -3rem;
-                    right: 4.5rem;
-                }
-                &::after {
-                    top: -3.6rem;
-                    right: 1.4rem;
-                    rotate: 135deg;
-                }
-            }
         }
 
+        .mockup-grid > * {
+            margin: 0;
+            padding: 0;
+            max-width: 17.5rem;
+            position: relative;
+        }
+
+        .mockup-grid div:first-child {
+            grid-area: 1 / 2 / 3 / 5;
+        }
+               
+        .mockup-grid div:first-child::before {
+            content: "css: scroll-snap-type, -align og -stop";
+            bottom: -2rem;
+            left: -1.5rem;
+        }
+        .mockup-grid div:first-child::after {
+            bottom: -1.4rem;
+            left: -3rem;
+            rotate: 15deg;
+        }
+            
+        .mockup-grid div:nth-child(2) {
+            grid-area: 1 / 7 / 1 / 7;
+            place-self: end;
+            max-width: 4rem;
+            margin-bottom: var(--space-s);
+        }
+        .mockup-grid div:nth-child(2)::after {
+            top: -3.2rem;
+            left: -2rem;
+            transform: scaleX(-1);
+            rotate: -90deg;
+        }
+
+        .mockup-grid div:nth-child(3) {
+            grid-area: 2 / 6 / 4 / 9;
+        }
+        .mockup-grid div:nth-child(3)::before {
+            content: "html: popover, popovertarget";
+            top: -3rem;
+            left: -3.5rem;
+        }
+        .mockup-grid div:nth-child(3)::after {
+            top: -1.4rem;
+            left: -2.2rem;
+            rotate: -20deg;
+        }
+    
+        .mockup-grid div:nth-child(4) {
+            grid-area: 5 / 3 / 6 / 6;
+        }
+        .mockup-grid div:nth-child(4)::before {
+            content: "css: animation-timeline og -range";
+            top: -3rem;
+            right: 4.5rem;
+        }
+        .mockup-grid div:nth-child(4)::after {
+            top: -3.6rem;
+            right: 1.4rem;
+            rotate: 135deg;
+        }
+        
         div:has( > img)::before, .before::before {
             font-family: "Shadows Into Light", cursive;
             letter-spacing: 0.1ch;
@@ -123,43 +126,41 @@ import Projekt from "../components/Projekt.astro";
 
         .mollegades {
             padding-right: var(--space-3xl);
-            &::before {
-                content: "2. semester eksamen, en kombination af alt, \A vi lærte på andet semester ";
-                white-space: pre;
-                bottom: -4rem;
-                right: 0;
-            }
-            &::after {
-                bottom: -1rem;
-                right: 3rem;
-                rotate: -40deg;
-                transform: scaleX(-1);
-            }
         }
-        .spil {
-            &::before {
-                content: "intro til css animationer";
-                top: -2.5rem;
-                right: -2rem;
-            }
-            &::after {
-                top: -5rem;
-                right: 6.3rem;
-                rotate: -105deg;
-                transform: scaleX(-1);
-            }
+        .mollegades::before {
+            content: "2. semester eksamen, en kombination af alt, \A vi lærte på andet semester ";
+            white-space: pre;
+            bottom: -4rem;
+            right: 0;
         }
-        .before {
-            &::before {
-                content: "intro til javaScript";
-                bottom: -2rem;
-                left: 2.5rem;
-            }
-            &::after {
-                bottom: -0.5rem;
-                left: 4.3rem;
-                rotate: 0deg;
-            }
+        .mollegades::after {
+            bottom: -1rem;
+            right: 3rem;
+            rotate: -40deg;
+            transform: scaleX(-1);
+        }
+        
+        .spil::before {
+            content: "intro til css animationer";
+            top: -2.5rem;
+            right: -2rem;
+        }
+        .spil::after {
+            top: -5rem;
+            right: 6.3rem;
+            rotate: -105deg;
+            transform: scaleX(-1);
+        }
+        
+        .before::before {
+            content: "intro til javaScript";
+            bottom: -2rem;
+            left: 2.5rem;
+        }
+        .before::after {
+            bottom: -0.5rem;
+            left: 4.3rem;
+            rotate: 0deg;
         }
 
         @media screen and (max-device-width: 780px) { 
@@ -172,62 +173,60 @@ import Projekt from "../components/Projekt.astro";
             .mockup-grid {  
                 grid-template-columns: 1fr;
                 grid-template-rows: repeat(4, auto);
-                
-                > div {
-                    grid-area: auto / 1 / auto / 1 !important;
-                    margin: 0;
-                    max-width: 80%;
-                }
-                > div:not(:last-child) {
-                    margin-bottom: var(--space-3xl);
-                }
-                div:first-child {
-                    place-self: end;
-                }
-                div:nth-child(2) {
-                    place-self: center !important;
-                    margin-bottom: 2rem;
-                    &::after {
-                    top: 2.4rem;
-                    right: -4.7rem;
-                    rotate: 130deg;
-                    transform: scaleX(1);
-                }
-                }
-                div:nth-child(3) {
-                    place-self: end;
-                    &::before {
-                        content: "html: popover, popovertarget";
-                        top: -2rem;
-                        left: -.5rem;
-                    }
-                }
-                div:nth-child(4) {
-                    place-self: center;
-                }
             }
+            .mockup-grid > div {
+                grid-area: auto / 1 / auto / 1 !important;
+                margin: 0;
+                max-width: 80%;
+            }
+            .mockup-grid > div:not(:last-child) {
+                margin-bottom: var(--space-3xl);
+            }
+            .mockup-grid div:first-child {
+                place-self: end;
+            }
+            .mockup-grid div:nth-child(2) {
+                place-self: center !important;
+                margin-bottom: 2rem;
+            }
+            .mockup-grid div:nth-child(2)::after {
+                top: 2.4rem;
+                right: -4.7rem;
+                rotate: 130deg;
+                transform: scaleX(1);
+            }
+            .mockup-grid div:nth-child(3) {
+                place-self: end;
+            }
+            .mockup-grid div:nth-child(3)::before {
+                content: "html: popover, popovertarget";
+                top: -2rem;
+                left: -.5rem;
+            }
+            .mockup-grid div:nth-child(4) {
+                place-self: center;
+            }
+
             .mollegades, .spil {
                 max-width: 85%;
             }
             .mollegades {
                 padding-right: 0;
                 margin: 0;
-                &::before {
-                    right: -3rem;
-                }
-                &::after {
-                    right: -2.5rem;
-                    rotate: -10deg;
-                }
             }
-            .before {
-                &::after {
-                    bottom: -2rem;
-                    left: -0.5rem;
-                    rotate: -10deg;
-                }
-            
+            .mollegades::before {
+                right: -3rem;
             }
-    }}
+            .mollegades::after {
+                right: -2.5rem;
+                rotate: -10deg;
+            }
+            .before::after {
+                bottom: -2rem;
+                left: -0.5rem;
+                rotate: -10deg;
+            }
+        }
+    }
   
   </style>

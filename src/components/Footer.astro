@@ -31,13 +31,11 @@ const { title, image, alt, description, link } = Astro.props;
          background-position: top;
          background-repeat: no-repeat;
          padding: calc(var(--space-3xl) * 1.5) 0 var(--space-3xl) 0;
-
-         h3 {
-            font-weight: 500;
-            margin-bottom: var(--space-m);
-         }
       }
-
+      h3 {
+         font-weight: 500;
+         margin-bottom: var(--space-m);
+      }
       ul {
          display: flex;
          flex-wrap: wrap;
@@ -52,41 +50,36 @@ const { title, image, alt, description, link } = Astro.props;
          font-size: var(--step-1);
          font-weight: 300;
          letter-spacing: 0.1ch;
-         /* transition: transform 0.3s ease-out; */
-
-         svg {
-            width: 1.5rem;
-         }
-
-         /* &:hover {
-          transform: translateY(8px);
-         } */
+      }
+      li a svg {
+         width: 1.5rem;
       }
 
       .github {
          position: relative;
-         &::before {
-            content: "se bla koden for denne side";
-            white-space: nowrap;
-            font-family: "Shadows Into Light", cursive;
-            letter-spacing: 0.1ch;
-            text-align: center;
-            color: var(--secondary-50);
-            position: absolute;
-            z-index: 1;
-            bottom: -2.5rem;
-            right: -6.5rem;
-        }
+      }
 
-        &::after {
-            content: url("/img/arrow.svg");
-            position: absolute;
-            z-index: 1;
-            bottom: -1.5rem;
-            right: -3.5rem;
-            transform: scaleX(-1);
-            rotate: -60deg;
-        }
+      .github::before {
+         content: "se bla koden for denne side";
+         white-space: nowrap;
+         font-family: "Shadows Into Light", cursive;
+         letter-spacing: 0.1ch;
+         text-align: center;
+         color: var(--secondary-50);
+         position: absolute;
+         z-index: 1;
+         bottom: -2.5rem;
+         right: -6.5rem;
+      }
+
+      .github::after {
+         content: url("/img/arrow.svg");
+         position: absolute;
+         z-index: 1;
+         bottom: -1.5rem;
+         right: -3.5rem;
+         transform: scaleX(-1);
+         rotate: -60deg;
       }
     }
   

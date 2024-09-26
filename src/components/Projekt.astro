@@ -25,48 +25,43 @@ const { title, link, date } = Astro.props;
             display: flex;
             align-items: center;
             gap: var(--space-s);
-            
-            span {
-                display: block;
-                width: 0.063rem;
-                height: 3rem;
-                background: var(--secondary-100);
-                rotate: 22.5deg;
-            }
-            .handwritten {
-                font-family: "Shadows Into Light", cursive;
-            }
+        }
+        .projekt-header span {
+            display: block;
+            width: 0.063rem;
+            height: 3rem;
+            background: var(--secondary-100);
+            rotate: 22.5deg;
+        }
+        .projekt-header .handwritten {
+            font-family: "Shadows Into Light", cursive;
+        }
 
-            > * {
-                margin: 0;
-            }
+        .projekt-header > * {
+            margin: 0;
         }
 
         article {
             margin-bottom: var(--space-3xl);
-            > div {
-                margin: 0 var(--space-s) var(--space-2xl) var(--space-s);
-            }
-            
+        }
+        article > div {
+            margin: 0 var(--space-s) var(--space-2xl) var(--space-s);
         }
         @media screen and (max-device-width: 650px) { 
             .projekt-header {
                 flex-direction: column;
                 align-items: start;
-
-                span {
-                    display: none;
-                }
+            }
+            .projekt-header span {
+                display: none;
             }
 
             article {
                 margin-top: var(--space-l);
-
-                > div {
-                margin: 0 0 var(--space-2xl) 0;
             }
+            article > div {
+            margin: 0 0 var(--space-2xl) 0;
             }
-        
         }
     }
   </style>
