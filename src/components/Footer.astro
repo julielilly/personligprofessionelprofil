@@ -39,9 +39,12 @@ const { title, image, alt, description, link } = Astro.props;
       ul {
          display: flex;
          flex-wrap: wrap;
-         column-gap: var(--space-3xl);
+         justify-content: space-between;
+         column-gap: var(--space-l);
          row-gap: var(--space-s);
          max-width: 85%;
+         max-width: 600px;
+         margin-right: var(--space-3xl);
       }
       li a{
          display: flex;
