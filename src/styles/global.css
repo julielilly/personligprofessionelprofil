@@ -187,12 +187,11 @@
   body {
     --content-width: 65svw;
     display: grid;
-    grid-template-rows: auto 1fr auto;
     grid-template-columns: [full-start] minmax(2ch, 1fr) [content-start] minmax(0, var(--content-width)) [content-end] minmax(2ch, 1fr) [full-end];
     /* column-gap: 2ch; */
 
     main {
-      grid-row: 1 / auto;
+      grid-row: 1;
     }
     header {
       grid-row: 1;
@@ -206,8 +205,7 @@
     display: grid;
     grid-template-columns: subgrid;
 
-    > *,
-    section {
+    > * {
       grid-column: content;
     }
   }
