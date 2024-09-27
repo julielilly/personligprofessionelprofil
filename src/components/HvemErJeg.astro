@@ -16,6 +16,25 @@
 
 </section>
 
+<script> 
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.fromTo( ".animate", {
+        color: gsap.getProperty(".animate", "--secondary-100")
+        }, {
+        rotation: 0,
+        scrollTrigger: {
+            trigger: ".animate",
+            scrub: true,
+            start: ' 55%',
+            end:'+=50'
+	    },
+        color: gsap.getProperty(".animate", "--secondary-300")
+    });
+</script>
+
 <style>
     @layer components {
         .introduction {
@@ -45,21 +64,9 @@
         }
 
         .introduction .animate {
-            color: var(--secondary-50);
             display: inline-block;
             transform-origin: left;
             rotate: 15deg;
-
-            animation: --tilt linear both;
-            animation-timeline: view(block);
-            animation-range: contain 35% contain 50%;
         }
-
-        @keyframes --tilt {
-            to {
-                rotate: 0deg;;
-                color: var(--secondary-300);
-            }
-        } 
     }
 </style>

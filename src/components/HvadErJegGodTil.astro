@@ -7,22 +7,42 @@
     <p>Gennem min uddannelse har jeg opbygget kompetencer inden for multimediedesign, hvor vi især har haft fokus på responsivitet og bæredygtighed i alle projekter. <br> Når det kommer til design, har vi arbejdet med Figma, mens vi i frontend-udvikling har brugt moderne frameworks og biblioteker som Astro, React og Next.js for at skabe dynamiske og effektive løsninger.</p>
     <p>Derudover har jeg dykket grundigt ned i html, css og javaScript. </p>
     <div class="code-section">
-        <code>let færdigheder = &#123;
-                html: "at strukturere indhold",
-                css: "at tilføje stil",
-                js: "at gøre det interaktivt"
-                &#125;
-        </code>
-        <code>function visFærdigheder() &#123;
-                let skillsText = `Jeg arbejder med HTML ved $&#123færdigheder.html&#125;, CSS ved $&#123færdigheder.css&#125;, og JavaScript ved $&#123færdigheder.js&#125;.`;
-                document.getElementById("my-skills").innerText = skillsText;
-            &#125;
-        </code>
-        <code>visFærdigheder();</code>
+        <code></code>
     </div>
     <a target="_blank" href="https://codepen.io/julielilly/pen/QWeWYYe?editors=0010"><button>Se resultatet på codepen</button></a>
 
 </section>
+
+<script>
+    import { gsap } from "gsap";
+    import { RoughEase } from "gsap/EasePack";
+    import { TextPlugin } from "gsap/TextPlugin";
+
+    gsap.registerPlugin(TextPlugin,RoughEase);
+   
+    window.addEventListener('scroll', showEffect);
+
+    function showEffect() {
+    
+        const container = document.querySelector("#hvaderjeggodtil")
+        const triggerBottom = window.innerHeight - 200;
+        console.log(triggerBottom )
+
+        const containerTop = container.getBoundingClientRect().top;
+
+        console.log(container, containerTop );
+
+        if (containerTop < triggerBottom - 200) {
+            gsap.to("code", {
+                duration: 8, 
+                text: 'let færdigheder = &#123 <br> html: "at strukturere indhold", <br> css: "at tilføje stil", <br> js: "at gøre det interaktivt" <br> &#125; <br> <br> function visFærdigheder() &#123; <br> let skillsText = `Jeg arbejder med HTML ved $&#123færdigheder.html&#125;, CSS ved $&#123færdigheder.css&#125;, og JavaScript ved $&#123færdigheder.js&#125;.`; <br> document.getElementById("my-skills").innerText = skillsText; <br> &#125; <br>  <br> visFærdigheder();'
+            })
+            window.removeEventListener('scroll', showEffect);
+        }
+    }
+
+    
+</script>
 
 <style>
     @layer components {
